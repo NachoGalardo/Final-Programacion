@@ -16,7 +16,6 @@ console.log("|BIENVENIDOS AL BINGO DESPISTADOS|");
 console.log("|--------------------------------|");
 
 do {
-    //casino.usuario.setSaldo(0); //set saldo 0 para que cuando regrese al menu inicial el saldo comience en 0
     respuestaNumerica = rls.questionInt (`Ingrese 1 para Iniciar. \nIngrese 0 para salir. \nElija: `);
     if (respuestaNumerica == 1) {
         console.clear();
@@ -27,6 +26,7 @@ do {
                 console.log ('\x1b[31m%s\x1b[0m', "Ingreso un nombre con menos de 5 caracteres, intentelo de nuevo: ");
             }
         } while (nombreUsuario.length < 5);
+        console.log (casino.usuario.getSaldo());
         casino.usuario.setNombre(nombreUsuario);
         console.clear();
         console.log ('\x1b[33m%s\x1b[0m', `Su nombre fue creado con exito, su usuario es: ${casino.usuario.getNombre()}`);
@@ -77,55 +77,73 @@ do {
                     //........................................................................................
                     else if (respuestaNumerica == 3) {
                         console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 3, estos son nuestros juegos disponibles. Seleccione un juego.`);
-                        do{
-                            respuestaNumerica = rls.questionInt (`1- Ruleta (0-36). \n2- Tragamonedas (3x3 Lineas). \n3- Bingo. \n4- Ruleta de Premios \n5- Tragamonedas (5x5 Lineas). \n0- Volver al menu anterior. \nElija: `);
+                        if (casino.usuario.getSaldo() < 100) {
                             console.clear();
-                            if (respuestaNumerica == 1){
-                                console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 1, Ruleta (0-36).`);
-                                let numeroApostado:number;
-                                do {
-                                    numeroApostado = rls.questionInt (`Ingrese el numero al que desea apostar (entre 0 y 36 inclusive): `);
-                                    if (numeroApostado < 0 || numeroApostado > 36) {
-                                        console.log ('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
-                                    }
-                                } while (numeroApostado < 0 || numeroApostado > 36);
-                                let valorApuesta:number;
-                                do {
-                                    valorApuesta = rls.questionInt (`Ingrese caunto desea apostar (minimo 100 - maximo 500): `);
-                                    if (valorApuesta < 100 || valorApuesta > 500) {
-                                        console.log ('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
-                                    }
-                                } while (valorApuesta < 100 || valorApuesta > 500);
+                            console.log ('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
+                        } else {
+                            do{
+                                respuestaNumerica = rls.questionInt (`1- Ruleta (0-36). \n2- Tragamonedas (3x3 Lineas). \n3- Bingo. \n4- Ruleta de Premios \n5- Tragamonedas (5x5 Lineas). \n0- Volver al menu anterior. \nElija: `);
                                 console.clear();
-                                console.log (`Aposto ${valorApuesta} creditos, al numero: ${numeroApostado}.`);
-                                let ruleta : Ruleta = new Ruleta (numeroApostado, valorApuesta);
-                                console.log (`La ruleta esta girando...`);
-                                console.log (`...`);
-                                console.log (`El numero ganador es...`);
-                                casino.usuario.setSaldo (ruleta.resultadoJuego(numeroApostado,valorApuesta));
-                                console.log (`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
-                            } 
-                            else if (respuestaNumerica == 2){
-                                
-                            }
-                            else if (respuestaNumerica == 3){
-                                
-                            }
-                            else if (respuestaNumerica == 4){
-                                
-                            }
-                            else if (respuestaNumerica == 5){
-                                
-                            }
-                            else if (respuestaNumerica == 0){
-                                console.log ('\x1b[31m%s\x1b[0m', "Usted a salido del menu");
-                                salidaJuegos = true;
-                            }
-                            else {
-                                console.log ('\x1b[31m%s\x1b[0m', "Ingreso una opcion incorrecta, intente nuevamente");
+                                if (respuestaNumerica == 1){
+                                    console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 1, Ruleta (0-36).`);
+                                    if (casino.usuario.getSaldo() < 100) {
+                                        console.clear();
+                                        console.log ('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
+                                    } else {
+                                        let numeroApostado:number;
+                                        do {
+                                            numeroApostado = rls.questionInt (`Ingrese el numero al que desea apostar (entre 0 y 36 inclusive): `);
+                                            if (numeroApostado < 0 || numeroApostado > 36) {
+                                                console.log ('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
+                                            }
+                                        } while (numeroApostado < 0 || numeroApostado > 36);
+                                        let valorApuesta:number;
+                                        let salir : boolean= false;
+                                        do {
+                                            valorApuesta = rls.questionInt (`Ingrese cuanto desea apostar (minimo 100 - maximo 500): `);
+                                            if (valorApuesta < 100 || valorApuesta > 500) {
+                                                console.log ('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
+                                            }
+                                            do {
+                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                    console.log ('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
+                                                    console.log (`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                    valorApuesta = rls.questionInt (`Ingrese cuanto desea apostar (minimo 100 - maximo 500): `);
+                                                }
+                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                        } while (valorApuesta < 100 || valorApuesta > 500);
+                                        console.clear();
+                                        console.log (`Aposto ${valorApuesta} creditos, al numero: ${numeroApostado}.`);
+                                        let ruleta : Ruleta = new Ruleta (numeroApostado, valorApuesta);
+                                        console.log (`La ruleta esta girando...`);
+                                        console.log (`...`);
+                                        console.log (`El numero ganador es...`);
+                                        casino.usuario.setSaldo (ruleta.resultadoJuego(numeroApostado,valorApuesta));
+                                        console.log (`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                    }
+                                } 
+                                else if (respuestaNumerica == 2){
+                                    
+                                }
+                                else if (respuestaNumerica == 3){
+                                    
+                                }
+                                else if (respuestaNumerica == 4){
+                                    
+                                }
+                                else if (respuestaNumerica == 5){
+                                    
+                                }
+                                else if (respuestaNumerica == 0){
+                                    console.log ('\x1b[31m%s\x1b[0m', "Usted a salido del menu");
+                                    salidaJuegos = true;
+                                }
+                                else {
+                                    console.log ('\x1b[31m%s\x1b[0m', "Ingreso una opcion incorrecta, intente nuevamente");
 
-                            } 
-                        } while (salidaJuegos == false);   
+                                } 
+                            } while (salidaJuegos == false);   
+                        }
                     }
                     //.......................................................................................
                     else if (respuestaNumerica == 0) {
@@ -142,6 +160,7 @@ do {
             else if (respuestaNumerica == 0) {
                 console.log ('\x1b[31m%s\x1b[0m', "Usted a salido del menu");
                 salidaMenu = true;
+                casino.usuario.setSaldo(-casino.usuario.getSaldo()); //set saldo 0 para que cuando regrese al menu inicial el saldo comience en 0
             } 
             //-------------------------------------------------------------------------------------------------------------------------\\
             else {
