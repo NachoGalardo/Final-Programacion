@@ -70,11 +70,11 @@ do {
                             }
                         } while (salida == false);
                     }
-                    //.......................................................................................
+                    //........................................................................................
                     else if (respuestaNumerica == 2) {
                         console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 2, su saldo actual es de: ${casino.usuario.getSaldo()} creditos.`);
                     }
-                    //.......................................................................................
+                    //........................................................................................
                     else if (respuestaNumerica == 3) {
                         console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 3, estos son nuestros juegos disponibles. Seleccione un juego.`);
                         do{
