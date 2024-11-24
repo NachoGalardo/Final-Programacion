@@ -3,16 +3,13 @@ import { Maquina } from "./maquina";
 
 export class CasinoOnline  {
     public maquinas : Maquina [];
+    public usuario : Usuario;
 
     constructor () {
         this.maquinas = [];
+        this.usuario = new Usuario ("")
     }
-
-    public crearUsuario (nombre:string):Usuario{
-        let usuario:Usuario = new Usuario(nombre);
-        return usuario;
-    }
-
+    
     public getmaquinas():Maquina[] {
        return this.maquinas;
     }
