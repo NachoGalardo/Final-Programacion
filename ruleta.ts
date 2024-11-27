@@ -1,10 +1,17 @@
-import { Maquina } from "./maquina";
 import { Comportamiento } from "./comportamiento";
 
-export class Ruleta extends Maquina implements Comportamiento {
+export class Ruleta implements Comportamiento {
   
-    constructor (numeroApostado: number, valorApostar: number) {
-        super(10,10);
+    constructor (numeroApostado: number, valorApostar: number) {}
+    
+    public darGananciaJuego (numero : number) :number {
+        let ganancia:number = numero * 35 + numero;
+        return ganancia;
+     }
+    public perderJuego (numero:number) :number {
+        let resultado:number = 0;
+        numero = resultado - numero;
+        return numero;
     }
     public resultadoJuego (numeroApostado:number, valorApuesta: number) : number {
         let ruleta: number;
@@ -13,12 +20,12 @@ export class Ruleta extends Maquina implements Comportamiento {
         ruleta = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
         if (numeroApostado == ruleta) {
             console.log (`Felicidades tu numero salio!!`);
-            let resultado:number = this.darGananciaRuleta(valorApuesta);
+            let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } else {
             console.log (`Lo lamentamos, el numero ganador es el ${ruleta} !!`);
-            let resultado:number = this.perderRuleta(valorApuesta);
+            let resultado:number = this.perderJuego(valorApuesta);
             return resultado;
         }
 
