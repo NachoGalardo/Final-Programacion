@@ -3,6 +3,8 @@ import { CasinoOnline } from "./casinoOnline";
 import { Ruleta } from "./ruleta";
 import { Tragamoneda } from "./tragamonedas";
 import { Tragamoneda5x5 } from "./tragamonedas5";
+import {Carrera } from "./carrera";
+import { Caballo } from "./caballo";
 
 
 let salidaSistema : boolean = false; //este se usa para salir del do while que finaliza el sistema
@@ -85,7 +87,7 @@ do {
                             console.log ('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
                         } else {
                             do{
-                                respuestaNumerica = rls.questionInt (`1- Ruleta (0-36). \n2- Tragamonedas (3x3 Lineas). \n3- Tragamonedas (5x5 Lineas). \n0- Volver al menu anterior. \nElija: `);
+                                respuestaNumerica = rls.questionInt (`1- Ruleta (0-36). \n2- Tragamonedas (3x3 Lineas). \n3- Tragamonedas (5x5 Lineas)(Apuesta minima 1000). \n4- Carrera de caballos (Apuesta minima 1000)  \n0- Volver al menu anterior. \nElija: `);
                                 console.clear();
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´RULETA´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                                 if (respuestaNumerica == 1){
@@ -185,6 +187,41 @@ do {
                                         console.log (`La tragamonedas esta girando...`);
                                         console.log (`...`);
                                         casino.usuario.setSaldo (tragamonedas5.resultadoJuego(valorApuesta));
+                                        console.log (`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                    }
+                                }
+
+                                //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´CARRERA DE CABALLOS´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
+                                else if (respuestaNumerica == 4){
+                                    console.log ('\x1b[33m%s\x1b[0m', `Ingreso la opcion 4, Carrera de caballos.`);
+                                    if (casino.usuario.getSaldo() < 1000) {
+                                        console.clear();
+                                        console.log ('\x1b[31m%s\x1b[0m', `Su saldo es menor a 1000, realice una carga.`);
+                                    } else {
+                                        let valorApuesta:number;
+                                        let numeroCaballo:number;
+                                        let salir : boolean= false;
+                                        let carrera : Carrera = new Carrera ();
+                                        do {
+                                            console.table(carrera.getCaballo ());
+                                            numeroCaballo = rls.questionInt (`Ingrese el numero del caballo a apostar: `);
+                                            valorApuesta = rls.questionInt (`Ingrese cuanto desea apostar (minimo 1000 - no hay tope maximo): `);
+                                            if (valorApuesta < 1000) {
+                                                console.log ('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
+                                            }
+                                            do {
+                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                    console.log ('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
+                                                    console.log (`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                    valorApuesta = rls.questionInt (`Ingrese cuanto desea apostar (minimo 1000 - no hay tope maximo): `);
+                                                }
+                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                        } while (valorApuesta < 1000);
+                                        console.clear();
+                                        console.log (`Aposto ${valorApuesta} creditos al caballo ${numeroCaballo}.`);
+                                        console.log (`Largaron...`);
+                                        console.log (`...`);
+                                        casino.usuario.setSaldo (carrera.resultadoJuego(numeroCaballo,valorApuesta));
                                         console.log (`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
                                     }
                                 }
