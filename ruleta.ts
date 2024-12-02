@@ -1,7 +1,7 @@
 import { Comportamiento } from "./comportamiento";
 import { Maquina } from "./maquina";
 
-export class Ruleta implements Comportamiento {
+export class Ruleta extends Maquina implements Comportamiento {
   
     constructor () {
         super ();
@@ -23,7 +23,6 @@ export class Ruleta implements Comportamiento {
             return resultado;
         } else {
             console.log (`Lo lamentamos, el numero ganador es el ${ruleta} !!`);
-            let resultado:number = this.perderJuego(valorApuesta);
             let resultado:number = this.perderJuego(valorApuesta);
             return resultado;
         }

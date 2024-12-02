@@ -1,5 +1,4 @@
 import { Comportamiento } from "./comportamiento";
-import { Comportamiento } from "./comportamiento";
 import { Maquina } from "./maquina";
 
 export class Tragamoneda extends Maquina implements Comportamiento {
