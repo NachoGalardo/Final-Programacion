@@ -1,18 +1,16 @@
 import { Comportamiento } from "./comportamiento";
+import { Maquina } from "./maquina";
 
-export class Ruleta implements Comportamiento {
+export class Ruleta extends Maquina implements Comportamiento {
   
-    constructor (numeroApostado: number, valorApostar: number) {}
+    constructor () {
+        super ();
+    }
     
     public darGananciaJuego (numero : number) :number {
         let ganancia:number = numero * 35 + numero;
         return ganancia;
      }
-    public perderJuego (numero:number) :number {
-        let resultado:number = 0;
-        numero = resultado - numero;
-        return numero;
-    }
     public resultadoJuego (numeroApostado:number, valorApuesta: number) : number {
         let ruleta: number;
         let minimo: number= 0;
@@ -28,7 +26,5 @@ export class Ruleta implements Comportamiento {
             let resultado:number = this.perderJuego(valorApuesta);
             return resultado;
         }
-
     }
-
 }

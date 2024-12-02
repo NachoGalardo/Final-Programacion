@@ -1,15 +1,20 @@
 import { Maquina } from "./maquina";
+import { Comportamiento } from "./comportamiento";
 
-export class Tragamoneda5x5 extends Maquina {
+export class Tragamoneda5x3 extends Maquina implements Comportamiento{
 
     constructor () {
         super ();
     }
     
+    public darGananciaJuego (numero : number) :number {
+        let ganancia:number = numero * 4;
+        return ganancia;
+    }
     public resultadoJuego (valorApuesta: number) : number {
         let tabla : string [] = [];
         let minimo: number= 0;
-        let maximo: number= 7;
+        let maximo: number= 10;
         for (let i=0; i < 15; i++) {
             const codigoAscii = Math.floor(Math.random() * (69 - 65 + 1)) + 65; //va de la A a la E
             tabla[i] = String.fromCharCode(codigoAscii);

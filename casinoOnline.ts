@@ -1,8 +1,8 @@
 import { Usuario } from "./usuario";
 
 export class CasinoOnline {
-    public nombre: string;
-    public direccion: string;
+    protected nombre: string;
+    protected direccion: string;
     public usuario: Usuario;
 
     constructor(nombre: string, direccion: string) {
