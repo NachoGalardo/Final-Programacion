@@ -1,6 +1,6 @@
 export class Usuario {
-    public nombreUsuario : string;
-    public saldo : number;
+    protected nombreUsuario : string;
+    protected saldo : number;
     
     constructor(nombreUsuario : string) {
         this.nombreUsuario = nombreUsuario;

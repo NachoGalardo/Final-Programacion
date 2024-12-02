@@ -1,0 +1,82 @@
+Reglamento del Casino
+
+1. Disposiciones Generales
+1.1. La entrada al casino Online está permitida solo a mayores de 18 años. 
+1.2. El casino se reserva el derecho de admisión.
+
+2. Reglas de la Ruleta
+2.1. Objetivo del Juego: Predecir en qué casilla numerada caerá la bola en la rueda de la ruleta. 
+2.2. Tipos de Apuestas:
+Internas: Números específicos
+2.3. Funcionamiento:
+Los jugadores insertan una apuesta mimima de 100 creditos y maxima de 500 creditos, y activan la Ruleta.
+La Ruleta gira y se detienen para mostrar al numero ganador.
+2.4. Pago de Apuestas:
+Apuestas internas: Pagos altos debido a las bajas probabilidades.
+2.5. Procedimiento del Juego:
+Los jugadores colocan sus apuestas en el tablero.
+El crupier automatizado gira la rueda en una direccion y lanza la bola en la dirección opuesta.
+Cuando la bola se detiene, el crupier anuncia el número ganador.
+Se pagan las apuestas ganadoras y se retiran las perdedoras para la bolsa de la casa.
+2.6. Premios:
+La ganancia correspondiente es igual a la cantidad apostada multiplicada por 35, mas la cantidad apostada inicial.
+2.7. Ajustes y Mantenimiento:
+La maquina Ruleta es revisada periodicamente para asegurar su correcto funcionamiento.
+
+3. Reglas de las Tragamonedas 3x3
+3.1. Objetivo del Juego: Obtener una combinación ganadora de numeros en los carretes, ya sea horizontal en la primera, segunda o tercera fila, o en varias a la vez, es decir en la primera y segunda fila, primera y tercera fila o segunda y tercera fila. 
+Tambien es posible obtener una combinacion en la primera, segunda y tercera fila a la vez, lo cual genera el premio mayor. 
+3.2. Funcionamiento:
+Los jugadores insertan una apuesta mimima de 100 creditos y maxima de 500 creditos, y activan la maquina.
+Los carretes giran y se detienen para mostrar una o varias combinaciones.
+Dependiendo de la combinacion, el jugador puede ganar mas o menos creditos. 
+3.3. Premios:
+Cada fila individual que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 2.
+Cada combinacion de dos filas que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 2, mas una segunda multiplicacion a ese total por 2.
+En caso de coincidir los numero de toda la primera fila entre si, mas la coincidencia de los numeros de la segunda fila entre si, mas la coincidencia de los numeros de la tercera fila entre si, tendra como ganancia correspondiente, la cantidad apostada multiplicada por 2, mas una segunda multiplicacion a ese total por 10.
+3.4. Ajustes y Mantenimiento:
+Las máquinas tragamonedas son revisadas periódicamente para asegurar su correcto funcionamiento.
+
+4. Reglas de las Tragamonedas 5x3
+4.1. Objetivo del Juego: Obtener una combinación ganadora de numeros en los carretes, ya sea horizontal en la primera, segunda o tercera fila, o en varias a la vez, es decir en la primera y segunda fila, primera y tercera fila o segunda y tercera fila. 
+Tambien es posible obtener una combinacion en la primera, segunda y tercera fila a la vez, lo cual genera el premio mayor. 
+4.2. Funcionamiento:
+Los jugadores insertan una apuesta minima de 1000 creditos, sin tope de un maximo de apuesta, y activan la maquina.
+Los carretes giran y se detienen para mostrar una o varias combinaciones.
+Dependiendo de la combinacion, el jugador puede ganar mas o menos creditos. 
+4.3. Premios:
+Cada fila individual que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 4.
+Cada combinacion de dos filas que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 4, mas una segunda multiplicacion a ese total por 3.
+En caso de coincidir los numero de toda la primera fila entre si, mas la coincidencia de los numeros de la segunda fila entre si, mas la coincidencia de los numeros de la tercera fila entre si, tendra como ganancia correspondiente, la cantidad apostada multiplicada por 4, mas una segunda multiplicacion a ese total por 20.
+4.4. Ajustes y Mantenimiento:
+Las máquinas tragamonedas son revisadas periódicamente para asegurar su correcto funcionamiento.
+
+5. Reglas de las Carreras de Caballos
+5.1. Objetivo del Juego: Apostar por el caballo que crea el usuario que ganara la carrera.
+5.2. Tipos de Apuestas:
+Ganador: Apuesta al caballo que llegue primero.
+5.3. Procedimiento de la Carrera:
+Los caballos son mostrados antes de la carrera con sus respectivos porcentajes de estado.
+El jugador realiza su apuesta.
+La carrera se lleva a cabo en la pista de un largo al azar entre 100 mts y 1000 mts.
+Los resultados se anuncian al finalizar la carrera y se pagan las apuestas ganadoras. 
+5.4. Reglamento de los Caballos:
+Todos los caballos deben estar en buena salud y cumplir con los requisitos veterinarios.
+5.5. Funcionamiento:
+El jugador apostara a un caballo con una apuesta mimima de 1000 creditos y sin tope maximo de apuesta.
+La carrera comenzara y al terminar mostrara al ganador.
+5.6. Premios:
+La ganancia correspondiente es igual a la cantidad apostada multiplicada por 8, mas la cantidad apostada inicial.
+
+6. Comportamiento y Conducta
+6.1. Se espera que todos los jugadores mantengan una conducta respetuosa y ordenada. 
+6.2. Cualquier intento de trampa o conducta inapropiada resultará en la expulsión inmediata del casino Online y posibles acciones legales.
+
+7. Seguridad
+7.1. El casino cuenta con sistemas de vigilancia y seguridad Online las 24 hs para proteger a los jugadores y al sistema. 
+7.2. Cualquier incidente debe ser reportado de inmediato al personal de asistencia.
+
+8. Responsabilidad Social
+8.1. El casino Online promueve el juego responsable y ofrece recursos para aquellos que puedan necesitar ayuda con problemas de juego.
+
+Este reglamento está diseñado para garantizar una experiencia de juego justa y segura para todos los participantes. ¡Diviértete y juega con responsabilidad!
