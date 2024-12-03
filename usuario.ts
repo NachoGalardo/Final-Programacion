@@ -17,6 +17,10 @@ export class Usuario {
         return this.saldo;
     }    
     public setSaldo(saldo: number): void {
+        this.saldo = saldo;
+    }
+
+    public agregarSaldo(saldo: number): void {
         this.saldo += saldo;
     }
 }

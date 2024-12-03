@@ -22,12 +22,12 @@ export class Ruleta extends Maquina implements Comportamiento {
         let maximo: number= 36;
         ruleta = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
         if (numeroApostado == ruleta) {
-            console.log (`Felicidades tu numero salio!!`);
+            console.log ('\x1b[32m%s\x1b[0m',`Felicidades tu numero salio!!`);
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } else {
-            console.log (`Lo lamentamos, el numero ganador es el ${ruleta} !!`);
+            console.log ('\x1b[31m%s\x1b[0m',`Lo lamentamos, el numero ganador es el ${ruleta} !!`);
             let resultado:number = this.perderJuego(valorApuesta);
             return resultado;
         }

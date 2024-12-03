@@ -1,5 +1,6 @@
 import { Comportamiento } from "./comportamiento";
 import { TragamonedaPadre } from "./tragamonedasPadre";
+import { Usuario } from "./usuario";
 
 export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
     protected tipo: string;
@@ -28,7 +29,7 @@ export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
         } 
         console.table([tabla.slice(0, 5), tabla.slice(5, 10), tabla.slice(10)]); 
         if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2]) && (tabla [2] === tabla [3]) && (tabla [3] === tabla [4])) && ((tabla [5] === tabla [6]) && (tabla [6] === tabla [7]) && (tabla [7] === tabla [8]) && (tabla [8] === tabla [9])) && ((tabla [10] === tabla [11]) && (tabla [11] === tabla [12]) && (tabla [12] === tabla [13]) && (tabla [13] === tabla [14]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "FELICIDADES GANASTE EL POZO MAYOR");
+            console.log ('\x1b[32m%s\x1b[0m', "FELICIDADES GANASTE EL POZO MAYOR");
             let resultado:number = this.darGananciaJuego(valorApuesta)*20;
             if (valorApuesta> 10000) {
                 resultado = this.darGananciaJuego (valorApuesta) * this.bonus();
@@ -37,37 +38,37 @@ export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
             return resultado;
         } 
         else if (((tabla [5] === tabla [6]) && (tabla [6] === tabla [7]) && (tabla [7] === tabla [8]) && (tabla [8] === tabla [9])) && ((tabla [10] === tabla [11]) && (tabla [11] === tabla [12]) && (tabla [12] === tabla [13]) && (tabla [13] === tabla [14]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*3;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         }
         else if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2]) && (tabla [2] === tabla [3]) && (tabla [3] === tabla [4])) && ((tabla [10] === tabla [11]) && (tabla [11] === tabla [12]) && (tabla [12] === tabla [13]) && (tabla [13] === tabla [14]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*3;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2]) && (tabla [2] === tabla [3]) && (tabla [3] === tabla [4])) && ((tabla [5] === tabla [6]) && (tabla [6] === tabla [7]) && (tabla [7] === tabla [8]) && (tabla [8] === tabla [9]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*3;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if ((tabla [0] === tabla [1]) && (tabla [1] === tabla [2]) && (tabla [2] === tabla [3]) && (tabla [3] === tabla [4])) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la primera linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la primera linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         }
         else if ((tabla [5] === tabla [6]) && (tabla [6] === tabla [7]) && (tabla [7] === tabla [8]) && (tabla [8] === tabla [9])) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la segunda linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la segunda linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if ((tabla [10] === tabla [11]) && (tabla [11] === tabla [12]) && (tabla [12] === tabla [13]) && (tabla [13] === tabla [14])) { 
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la tercera linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la tercera linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
@@ -86,7 +87,7 @@ export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
         for (let i = 0; i < cantidadTiradas; i++) {
             if (saldoActualUsuario < valorApuesta) {
                 i = cantidadTiradas;
-                console.log ("Tus tiradas automaticas se detuvieron por tener saldo insuficiente");
+                console.log ('\x1b[31m%s\x1b[0m','Tus tiradas automaticas se detuvieron por tener saldo insuficiente');
             } else {
                 console.log (`El numero de tiradas restantes es: ${cantidadTiradas - i}`);
                 resultado = this.resultadoJuego(valorApuesta);
@@ -95,6 +96,7 @@ export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
                 console.log ("saldo", saldoActualUsuario)
             }
         }
-        return resultado;
-    }
+        return saldoActualUsuario;
+    } 
+       
 }

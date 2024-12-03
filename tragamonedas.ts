@@ -28,7 +28,7 @@ export class Tragamoneda extends TragamonedaPadre implements Comportamiento {
         } 
         console.table([tabla.slice(0, 3), tabla.slice(3, 6), tabla.slice(6)]); 
         if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) && ((tabla [3] === tabla [4]) && (tabla [4] === tabla [5])) && ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "FELICIDADES GANASTE EL POZO MAYOR");
+            console.log ('\x1b[32m%s\x1b[0m', "FELICIDADES GANASTE EL POZO MAYOR");
             let resultado:number = this.darGananciaJuego(valorApuesta)*10;
             if (valorApuesta > 400){
                 resultado = this.darGananciaJuego (valorApuesta) * this.bonus(); //si apuesta mas de 400 y saca el gordo se cuatriplica lo apostado*10
@@ -37,37 +37,37 @@ export class Tragamoneda extends TragamonedaPadre implements Comportamiento {
             return resultado;
         } 
         else if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) && ((tabla [3] === tabla [4]) && (tabla [4] === tabla [5]))){
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*2;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         }
         else if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) && ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*2;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if (((tabla [3] === tabla [4]) && (tabla [4] === tabla [5])) && ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8]))) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en dos lineas");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en dos lineas");
             let resultado:number = this.darGananciaJuego(valorApuesta)*2;
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if ((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) { 
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la primera linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la primera linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if ((tabla [3] === tabla [4]) && (tabla [4] === tabla [5])) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la segunda linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la segunda linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 
         else if ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8])) {
-            console.log ('\x1b[31m%s\x1b[0m', "Ganaste en la tercera linea");
+            console.log ('\x1b[32m%s\x1b[0m', "Ganaste en la tercera linea");
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;

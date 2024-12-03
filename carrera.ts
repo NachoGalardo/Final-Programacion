@@ -38,13 +38,13 @@ export class Carrera extends Maquina implements Comportamiento{
     public resultadoJuego(numeroCaballoApostado:number, valorApuesta:number) : number {
         let podio =  this.ordenarPodio(this.caballos, this.distancia);            
         if (numeroCaballoApostado == podio[0].numeroCaballo) {
-            console.log (`Felicidades tu caballo es el ganador!!`);
+            console.log ('\x1b[32m%s\x1b[0m',`Felicidades tu caballo es el ganador!!`);
             let resultado:number = this.darGananciaJuego(valorApuesta);
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } else {
             console.log (`Cruzaron el disco. El caballo ganador es ${podio[0].nombre} con el numero ${podio[0].numeroCaballo} !!`);
-            console.log (`Lo lamentamos has perdido. Esta es la tabla de posiciones: `);
+            console.log ('\x1b[31m%s\x1b[0m',`Lo lamentamos has perdido. Esta es la tabla de posiciones: `);
             console.table (podio);
             let resultado:number = this.perderJuego(valorApuesta);
             return resultado;
