@@ -28,7 +28,7 @@ export class Carrera extends Maquina implements Comportamiento{
         return this.caballos;
     }
     public getDistanciaPista () : void {
-        console.log (`El largo de la pista es ${this.distancia}`);
+        console.log (`El largo de la pista es ${this.distancia} mts`);
         return;
     }
     public darGananciaJuego(numero: number): number {
