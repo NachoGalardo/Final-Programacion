@@ -2,11 +2,16 @@ import { Comportamiento } from "./comportamiento";
 import { Maquina } from "./maquina";
 
 export class Ruleta extends Maquina implements Comportamiento {
-  
-    constructor () {
-        super ();
+    private tipoRuleta: string;
+
+    constructor (nombreJuego : string, tipoRuleta: string) {
+        super (nombreJuego);
+        this.tipoRuleta = tipoRuleta;
     }
-    
+    public perderJuego (numero:number) :number {
+        let resultado:number = - numero;
+        return resultado;
+    }
     public darGananciaJuego (numero : number) :number {
         let ganancia:number = numero * 35 + numero;
         return ganancia;

@@ -13,10 +13,10 @@ export class CasinoOnline {
     public getNombre(): string {
         return this.nombre;
     }
-    public setNombre(nombre: string): void {
+    public setNombre(nombre : string): void {
         this.nombre = nombre;
     }
-    public getDireccion(): string {
+    public getDireccion () : string {
         return this.direccion;
     }
     public setDireccion(direccion: string): void {

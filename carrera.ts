@@ -6,8 +6,8 @@ export class Carrera extends Maquina implements Comportamiento{
     protected distancia: number;
     protected caballos: Caballo[];
     
-    constructor() {
-        super ();
+    constructor(nombreJuego : string) {
+        super (nombreJuego);
         this.distancia = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
         this.caballos = [
             new Caballo("Relampago",7),
@@ -20,12 +20,15 @@ export class Carrera extends Maquina implements Comportamiento{
             new Caballo("Manchita",12)
         ];
     }
-    
+    public perderJuego (numero:number) :number {
+        let resultado:number = - numero;
+        return resultado;
+    }
     public getListaCaballos(): Caballo[] {
         return this.caballos;
     }
     public getDistanciaPista () : void {
-        console.log (`El largo de la pista es ${this.distancia}`);
+        console.log (`El largo de la pista es ${this.distancia} mts`);
         return;
     }
     public darGananciaJuego(numero: number): number {
