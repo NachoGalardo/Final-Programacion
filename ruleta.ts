@@ -3,10 +3,13 @@ import { Maquina } from "./maquina";
 
 export class Ruleta extends Maquina implements Comportamiento {
   
-    constructor () {
-        super ();
+    constructor (nombreJuego : string) {
+        super (nombreJuego);
     }
-    
+    public perderJuego (numero:number) :number {
+        let resultado:number = - numero;
+        return resultado;
+    }
     public darGananciaJuego (numero : number) :number {
         let ganancia:number = numero * 35 + numero;
         return ganancia;

@@ -120,7 +120,7 @@ do {
                                         } while (valorApuesta < 100 || valorApuesta > 500);
                                         console.clear();
                                         console.log (`Aposto ${valorApuesta} creditos, al numero: ${numeroApostado}.`);
-                                        let ruleta : Ruleta = new Ruleta ();
+                                        let ruleta : Ruleta = new Ruleta ("Ruleta");
                                         console.log (`La ruleta esta girando...`);
                                         console.log (`...`);
                                         console.log (`El numero ganador es...`);
@@ -152,7 +152,7 @@ do {
                                         } while (valorApuesta < 100 || valorApuesta > 500);
                                         console.clear();
                                         console.log (`Aposto ${valorApuesta} creditos.`);
-                                        let tragamonedas : Tragamoneda = new Tragamoneda ();
+                                        let tragamonedas : Tragamoneda = new Tragamoneda (9, 0, 6, "Tragamonedas 3*3");
                                         console.log (`La tragamonedas esta girando...`);
                                         console.log (`...`);
                                         casino.usuario.setSaldo (tragamonedas.resultadoJuego(valorApuesta));
@@ -183,7 +183,7 @@ do {
                                         } while (valorApuesta < 1000);
                                         console.clear();
                                         console.log (`Aposto ${valorApuesta} creditos.`);
-                                        let tragamonedas5 : Tragamoneda5x3 = new Tragamoneda5x3 ();
+                                        let tragamonedas5 : Tragamoneda5x3 = new Tragamoneda5x3 (15, 69, 65, "Tragamonedas 5*3");
                                         console.log (`La tragamonedas esta girando...`);
                                         console.log (`...`);
                                         casino.usuario.setSaldo (tragamonedas5.resultadoJuego(valorApuesta));
@@ -200,7 +200,7 @@ do {
                                         let valorApuesta:number;
                                         let numeroCaballo:number;
                                         let salir : boolean= false;
-                                        let carrera : Carrera = new Carrera ();
+                                        let carrera : Carrera = new Carrera ("Carrera de Caballos");
                                         console.table(carrera.getListaCaballos ());
                                         carrera.getDistanciaPista();
                                         do {

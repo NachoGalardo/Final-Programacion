@@ -1,27 +1,38 @@
 import { Comportamiento } from "./comportamiento";
-import { Maquina } from "./maquina";
+import { TragamonedaPadre } from "./tragamonedasPadre";
 
-export class Tragamoneda extends Maquina implements Comportamiento {
+export class Tragamoneda extends TragamonedaPadre implements Comportamiento {
+    protected multiplicadorDeApuesta : number;
 
-    constructor () {
-        super ();
+    constructor (cantidadPosiciones : number, minimo : number, maximo : number, nombreJuego : string) {
+        super (cantidadPosiciones, minimo, maximo, nombreJuego);
+        this.multiplicadorDeApuesta = 2;
+    }
+
+    public bonus () : number {
+        let multiplicadorBonus :number = this.multiplicadorDeApuesta*2;
+        return multiplicadorBonus;
+    }
+    public perderJuego (numero:number) :number {
+        let resultado:number = - numero;
+        return resultado;
     }
     public darGananciaJuego (numero : number) :number {
-        let ganancia:number = numero * 2;
+        let ganancia:number = numero * this.multiplicadorDeApuesta;
         return ganancia;
     }
-    
     public resultadoJuego (valorApuesta: number) : number {
         let tabla : number [] = [];
-        let minimo: number= 0;
-        let maximo: number= 6;
-        for (let i=0; i < 9; i++) {
-            tabla[i] = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        for (let i=0; i < this.cantidadPosiciones; i++) {
+            tabla[i] = Math.floor(Math.random() * (this.maximo - this.minimo + 1)) + this.minimo;
         } 
         console.table([tabla.slice(0, 3), tabla.slice(3, 6), tabla.slice(6)]); 
         if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) && ((tabla [3] === tabla [4]) && (tabla [4] === tabla [5])) && ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8]))) {
             console.log ('\x1b[31m%s\x1b[0m', "FELICIDADES GANASTE EL POZO MAYOR");
             let resultado:number = this.darGananciaJuego(valorApuesta)*10;
+            if (valorApuesta > 400){
+                resultado = this.darGananciaJuego (valorApuesta) * this.bonus(); //si apuesta mas de 400 y saca el gordo se cuatriplica lo apostado*10
+            }
             console.log (`Tu ganancia total es de: ${resultado}.`);
             return resultado;
         } 

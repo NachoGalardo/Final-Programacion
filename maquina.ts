@@ -1,7 +1,9 @@
 export abstract class Maquina {
-   
-    public perderJuego (numero:number) :number {
-        let resultado:number = - numero;
-        return resultado;
+    protected nombreJuego : string;
+    
+    constructor (nombreJuego : string) {
+        this.nombreJuego = nombreJuego;
     }
+   
+    abstract perderJuego (numero:number) :number;
 }
