@@ -1,9 +1,9 @@
 import { Usuario } from "./usuario";
 
 export class CasinoOnline {
-    protected nombre: string;
-    protected direccion: string;
-    public usuario: Usuario;
+    private nombre: string;
+    private direccion: string;
+    private usuario: Usuario;
 
     constructor(nombre: string, direccion: string) {
         this.usuario = new Usuario(""); //se inicia vacio, luego se le setea con el nombre ingresado por el usuario
@@ -22,4 +22,15 @@ export class CasinoOnline {
     public setDireccion(direccion: string): void {
         this.direccion = direccion;
     }
+
+    public getUsuario (){
+        return this.usuario;
+    }
+
+    public setUsuario ():void{
+        this.usuario = new Usuario("");
+    }
+
+
+
 }

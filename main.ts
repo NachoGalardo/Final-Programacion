@@ -13,12 +13,12 @@ let nombreUsuario: string;
 let nuevoNombreUsuario: string; //se usa en la validacion
 let salidaMenu: boolean = false; //este es el do while del final de la eleccion de modificar usuario o ir a salas de juegos
 
-let casino: CasinoOnline = new CasinoOnline("DESPISTADOS", "BS. AS. Colon 2781");
+let casino: CasinoOnline = new CasinoOnline("Magic Star", "BS. AS. Colon 2781");
 
 do {
-    console.log("|--------------------------------|");
-    console.log(`|BIENVENIDOS AL BINGO ${casino.getNombre()}|`);
-    console.log("|--------------------------------|");
+    console.log('\x1b[35m%s\x1b[0m',"|--------------------------------|");
+    console.log('\x1b[35m%s\x1b[0m',`|BIENVENIDOS AL BINGO ${casino.getNombre()}|`);
+    console.log('\x1b[35m%s\x1b[0m',"|--------------------------------|");
     respuestaNumerica = rls.questionInt(`Ingrese 1 para Iniciar. \nIngrese 2 para ver el reglamento de los juegos. \nIngrese 0 para salir. \nElija: `);
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++INICIA SISTEMA PIDIENDO USUARIO+++++++++++++++++++++++++++++++++++++++++++++++++++++//
     if (respuestaNumerica == 1) {
@@ -30,11 +30,11 @@ do {
                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un nombre con menos de 5 caracteres, intentelo de nuevo: ");
             }
         } while (nombreUsuario.length < 5);
-        console.log(casino.usuario.getSaldo());
-        casino.usuario.setNombre(nombreUsuario);
+        console.log(casino.getUsuario().getSaldo());
+        casino.getUsuario().setNombre(nombreUsuario);
         console.clear();
-        console.log('\x1b[33m%s\x1b[0m', `Su nombre fue creado con exito, su usuario es: ${casino.usuario.getNombre()}`);
-        console.log('\x1b[33m%s\x1b[0m', `Su saldo actual es de: ${casino.usuario.getSaldo()}`);
+        console.log('\x1b[33m%s\x1b[0m', `Su nombre fue creado con exito, su usuario es: ${casino.getUsuario().getNombre()}`);
+        console.log('\x1b[33m%s\x1b[0m', `Su saldo actual es de: ${casino.getUsuario().getSaldo()}`);
         //---------------------------------------------------MODIFICAR USUARIO----------------------------------------------------------------------\\
         do {
             salidaMenu = false;
@@ -48,8 +48,8 @@ do {
                         console.log('\x1b[31m%s\x1b[0m', "Ingreso un nombre con menos de 5 caracteres, intentelo de nuevo: ");
                     }
                 } while (nuevoNombreUsuario.length < 5);
-                casino.usuario.setNombre(nuevoNombreUsuario);
-                console.log('\x1b[33m%s\x1b[0m', `Su nuevo nombre de usuario es: ${casino.usuario.getNombre()}`);
+                casino.getUsuario().setNombre(nuevoNombreUsuario);
+                console.log('\x1b[33m%s\x1b[0m', `Su nuevo nombre de usuario es: ${casino.getUsuario().getNombre()}`);
             }
             //------------------------------------------------SALA DE JUEGOS-------------------------------------------------------------------------\\
             else if (respuestaNumerica == 2) {
@@ -69,20 +69,20 @@ do {
                             if (respuestaNumerica < 100) {
                                 console.log('\x1b[31m%s\x1b[0m', `Ingreso un valor menor a 100, vuelva a intentar`);
                             } else {
-                                casino.usuario.setSaldo(respuestaNumerica);
-                                console.log('\x1b[33m%s\x1b[0m', `Su saldo fue cargado con exito, su nuevo saldo es: ${casino.usuario.getSaldo()}`);
+                                casino.getUsuario().agregarSaldo(respuestaNumerica);
+                                console.log('\x1b[33m%s\x1b[0m', `Su saldo fue cargado con exito, su nuevo saldo es: ${casino.getUsuario().getSaldo()}`);
                                 salida = true;
                             }
                         } while (salida == false);
                     }
                     //..................................................VER SALDO ACTUAL.....................................
                     else if (respuestaNumerica == 2) {
-                        console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 2, su saldo actual es de: ${casino.usuario.getSaldo()} creditos.`);
+                        console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 2, su saldo actual es de: ${casino.getUsuario().getSaldo()} creditos.`);
                     }
                     //...................................................LISTA JUEGOS.....................................
                     else if (respuestaNumerica == 3) {
                         console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 3, estos son nuestros juegos disponibles. Seleccione un juego.`);
-                        if (casino.usuario.getSaldo() < 100) {
+                        if (casino.getUsuario().getSaldo() < 100) {
                             console.clear();
                             console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
                         } else {
@@ -92,7 +92,7 @@ do {
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´RULETA´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                                 if (respuestaNumerica == 1) {
                                     console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 1, Ruleta (0-36).`);
-                                    if (casino.usuario.getSaldo() < 100) {
+                                    if (casino.getUsuario().getSaldo() < 100) {
                                         console.clear();
                                         console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
                                     } else {
@@ -111,12 +111,12 @@ do {
                                                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
                                             }
                                             do {
-                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                     console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
-                                                    console.log(`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                    console.log(`Su saldo es de ${casino.getUsuario().getSaldo()}.`);
                                                     valorApuesta = rls.questionInt(`Ingrese cuanto desea apostar (minimo 100 - maximo 500): `);
                                                 }
-                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                            } while (casino.getUsuario().getSaldo() < valorApuesta);
                                         } while (valorApuesta < 100 || valorApuesta > 500);
                                         console.clear();
                                         console.log(`Aposto ${valorApuesta} creditos, al numero: ${numeroApostado}.`);
@@ -124,14 +124,14 @@ do {
                                         console.log(`La ruleta esta girando...`);
                                         console.log(`...`);
                                         console.log(`El numero ganador es...`);
-                                        casino.usuario.setSaldo(ruleta.resultadoJuego(numeroApostado, valorApuesta));
-                                        console.log(`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                        casino.getUsuario().agregarSaldo(ruleta.resultadoJuego(numeroApostado, valorApuesta));
+                                        console.log(`Tu saldo quedo en ${casino.getUsuario().getSaldo()} creditos.`);
                                     }
                                 }
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´TRAGAMONEDAS 3X3´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                                 else if (respuestaNumerica == 2) {
                                     console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 2, Tragamonedas (3x3 Lineas).`);
-                                    if (casino.usuario.getSaldo() < 100) {
+                                    if (casino.getUsuario().getSaldo() < 100) {
                                         console.clear();
                                         console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 100, realice una carga.`);
                                     } else {
@@ -143,34 +143,34 @@ do {
                                                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
                                             }
                                             do {
-                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                     console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
-                                                    console.log(`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                    console.log(`Su saldo es de ${casino.getUsuario().getSaldo()}.`);
                                                     valorApuesta = rls.questionInt(`Ingrese cuanto desea apostar (minimo 100 - maximo 500): `);
                                                 }
-                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                            } while (casino.getUsuario().getSaldo() < valorApuesta);
                                         } while (valorApuesta < 100 || valorApuesta > 500);
                                         console.clear();
                                         console.log(`Aposto ${valorApuesta} creditos.`);
                                         let tragamonedas: Tragamoneda = new Tragamoneda(9, 0, 6, "Tragamonedas 3*3");
                                         console.log(`La tragamonedas esta girando...`);
                                         console.log(`...`);
-                                        casino.usuario.setSaldo(tragamonedas.resultadoJuego(valorApuesta));
-                                        console.log(`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                        casino.getUsuario().agregarSaldo(tragamonedas.resultadoJuego(valorApuesta));
+                                        console.log(`Tu saldo quedo en ${casino.getUsuario().getSaldo()} creditos.`);
                                     }
                                 }
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´TRAGAMONEDAS 5X3´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                                 else if (respuestaNumerica == 3) {
                                     console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 3, Tragamonedas (5x3 Lineas) para apuestas fuertes.`);
                                     let tragamonedas5: Tragamoneda5x3 = new Tragamoneda5x3(15, 69, 65, "Tragamonedas 5*3", "Deluxe");
-                                    if (casino.usuario.getSaldo() < 1000) {
+                                    if (casino.getUsuario().getSaldo() < 1000) {
                                         console.clear();
                                         console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 1000, realice una carga.`);
                                     } else {
                                         let salirEleccionTiradas: boolean = false;
                                         do {
                                             respuestaNumerica = rls.questionInt(`1- Para tiradas manuales. \n2- Para tiradas automaticas. \n0- Volver al menu anterior. \nElija: `);
-                                            if (casino.usuario.getSaldo() < 1000) {
+                                            if (casino.getUsuario().getSaldo() < 1000) {
                                                 console.clear();
                                                 console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 1000, realice una carga.`);
                                                 salirEleccionTiradas = true;
@@ -183,22 +183,22 @@ do {
                                                             console.log('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
                                                         }
                                                         do {
-                                                            if (casino.usuario.getSaldo() < valorApuesta) {
+                                                            if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
-                                                                console.log(`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                                console.log(`Su saldo es de ${casino.getUsuario().getSaldo()}.`);
                                                                 valorApuesta = rls.questionInt(`Ingrese cuanto desea apostar (minimo 1000 - no hay tope maximo): `);
                                                             }
-                                                        } while (casino.usuario.getSaldo() < valorApuesta);
+                                                        } while (casino.getUsuario().getSaldo() < valorApuesta);
                                                     } while (valorApuesta < 1000);
                                                     console.clear();
                                                     console.log(`Aposto ${valorApuesta} creditos.`);
                                                     console.log(`La tragamonedas esta girando...`);
                                                     console.log(`...`);
-                                                    casino.usuario.setSaldo(tragamonedas5.resultadoJuego(valorApuesta));
-                                                    console.log(`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                                    casino.getUsuario().agregarSaldo(tragamonedas5.resultadoJuego(valorApuesta));
+                                                    console.log(`Tu saldo quedo en ${casino.getUsuario().getSaldo()} creditos.`);
                                                 }
                                                 else if (respuestaNumerica == 2) {
-                                                    if (casino.usuario.getSaldo() < 1000) {
+                                                    if (casino.getUsuario().getSaldo() < 1000) {
                                                         console.clear();
                                                         console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 1000, realice una carga.`);
                                                     } else {
@@ -211,19 +211,27 @@ do {
                                                                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto menor a 1000, vuelva a ingresar: ");
                                                             }
                                                             do {
-                                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                                if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                                     console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
-                                                                    console.log(`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                                    console.log(`Su saldo es de ${casino.getUsuario().getSaldo()}.`);
                                                                     valorApuesta = rls.questionInt(`Ingrese cuanto desea apostar (minimo 1000 - no hay tope maximo): `);
                                                                 }
-                                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                                            } while (casino.getUsuario().getSaldo() < valorApuesta);
                                                         } while (valorApuesta < 1000);
-                                                        if (casino.usuario.getSaldo() < valorApuesta) {
+                                                        if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                             console.log("Su credito es insuficiente, por favor regrese y cargue mas saldo");
                                                         }
-                                                        let saldoActual: number = casino.usuario.getSaldo();
-                                                        casino.usuario.setSaldo(tragamonedas5.tiradasAutomaticas(valorApuesta, cantidadTiradas, saldoActual));
-                                                        console.log(`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+
+                                                        let saldoActual: number = casino.getUsuario().getSaldo();
+                                                        casino.getUsuario().setSaldo(tragamonedas5.tiradasAutomaticas(valorApuesta, cantidadTiradas, saldoActual));
+
+                                                        console.log(`Tu saldo quedo en ${casino.getUsuario().getSaldo()} creditos.`);
+                                                        /*  let saldoActual: number = casino.usuario.getSaldo();
+                                                         saldoActual = tragamonedas5.tiradasAutomaticas(valorApuesta, cantidadTiradas, saldoActual);
+                                                         casino.usuario.setSaldo(saldoActual);
+ 
+                                                         console.log(`Tu saldo quedó en ${casino.usuario.getSaldo()} créditos.`); */
+
                                                     }
                                                 }
                                                 else if (respuestaNumerica == 0) {
@@ -240,7 +248,7 @@ do {
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´CARRERA DE CABALLOS´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                                 else if (respuestaNumerica == 4) {
                                     console.log('\x1b[33m%s\x1b[0m', `Ingreso la opcion 4, Carrera de caballos.`);
-                                    if (casino.usuario.getSaldo() < 1000) {
+                                    if (casino.getUsuario().getSaldo() < 1000) {
                                         console.clear();
                                         console.log('\x1b[31m%s\x1b[0m', `Su saldo es menor a 1000, realice una carga.`);
                                     } else {
@@ -265,19 +273,19 @@ do {
                                                 console.log('\x1b[31m%s\x1b[0m', "Ingreso un numero incorrecto, vuelva a ingresar: ");
                                             }
                                             do {
-                                                if (casino.usuario.getSaldo() < valorApuesta) {
+                                                if (casino.getUsuario().getSaldo() < valorApuesta) {
                                                     console.log('\x1b[31m%s\x1b[0m', "Ingreso un monto mayor al total de sus creditos disponibles");
-                                                    console.log(`Su saldo es de ${casino.usuario.getSaldo()}.`);
+                                                    console.log(`Su saldo es de ${casino.getUsuario().getSaldo()}.`);
                                                     valorApuesta = rls.questionInt(`Ingrese cuanto desea apostar (minimo 1000 - no hay tope maximo): `);
                                                 }
-                                            } while (casino.usuario.getSaldo() < valorApuesta);
+                                            } while (casino.getUsuario().getSaldo() < valorApuesta);
                                         } while (valorApuesta < 1000);
                                         console.clear();
                                         console.log(`Aposto ${valorApuesta} creditos al caballo N° ${numeroCaballo}.`);
                                         console.log(`Largaron...`);
                                         console.log(`...`);
-                                        casino.usuario.setSaldo(carrera.resultadoJuego(numeroCaballo, valorApuesta));
-                                        console.log(`Tu saldo quedo en ${casino.usuario.getSaldo()} creditos.`);
+                                        casino.getUsuario().agregarSaldo(carrera.resultadoJuego(numeroCaballo, valorApuesta));
+                                        console.log(`Tu saldo quedo en ${casino.getUsuario().getSaldo()} creditos.`);
                                     }
                                 }
                                 //´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´SALIR´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
@@ -308,7 +316,7 @@ do {
             else if (respuestaNumerica == 0) {
                 console.log('\x1b[31m%s\x1b[0m', "Usted a salido del menu");
                 salidaMenu = true;
-                casino.usuario.setSaldo(-casino.usuario.getSaldo()); //set saldo 0 para que cuando regrese al menu inicial el saldo comience en 0
+                casino.getUsuario().setSaldo(-casino.getUsuario().getSaldo()); //set saldo 0 para que cuando regrese al menu inicial el saldo comience en 0
             }
             //-------------------------------------------------------VALOR INCORRECTO------------------------------------------------------------------\\
             else {
