@@ -7,6 +7,7 @@ export class Ruleta extends Maquina implements Comportamiento {
     constructor (nombreJuego : string, tipoRuleta: string) {
         super (nombreJuego);
         this.tipoRuleta = tipoRuleta;
+        this.nombreJuego = nombreJuego;
     }
     public perderJuego (numero:number) :number {
         let resultado:number = - numero;

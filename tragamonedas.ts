@@ -2,7 +2,7 @@ import { Comportamiento } from "./comportamiento";
 import { TragamonedaPadre } from "./tragamonedasPadre";
 
 export class Tragamoneda extends TragamonedaPadre implements Comportamiento {
-    protected multiplicadorDeApuesta : number;
+    private multiplicadorDeApuesta : number;
 
     constructor (cantidadPosiciones : number, minimo : number, maximo : number, nombreJuego : string) {
         super (cantidadPosiciones, minimo, maximo, nombreJuego);
@@ -23,8 +23,8 @@ export class Tragamoneda extends TragamonedaPadre implements Comportamiento {
     }
     public resultadoJuego (valorApuesta: number) : number {
         let tabla : number [] = [];
-        for (let i=0; i < this.cantidadPosiciones; i++) {
-            tabla[i] = Math.floor(Math.random() * (this.maximo - this.minimo + 1)) + this.minimo;
+        for (let i=0; i < this.getCantidadPosiciones(); i++) {
+            tabla[i] = Math.floor(Math.random() * (this.getMaximo() - this.getMinimo() + 1)) + this.getMinimo();
         } 
         console.table([tabla.slice(0, 3), tabla.slice(3, 6), tabla.slice(6)]); 
         if (((tabla [0] === tabla [1]) && (tabla [1] === tabla [2])) && ((tabla [3] === tabla [4]) && (tabla [4] === tabla [5])) && ((tabla [6] === tabla [7]) && (tabla [7] === tabla [8]))) {

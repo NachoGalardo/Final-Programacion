@@ -10,6 +10,7 @@ export class CasinoOnline {
         this.nombre = nombre;
         this.direccion = direccion;
     }
+    
     public getNombre(): string {
         return this.nombre;
     }
@@ -22,15 +23,10 @@ export class CasinoOnline {
     public setDireccion(direccion: string): void {
         this.direccion = direccion;
     }
-
     public getUsuario (){
         return this.usuario;
     }
-
     public setUsuario ():void{
         this.usuario = new Usuario("");
     }
-
-
-
 }
