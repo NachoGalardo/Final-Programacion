@@ -1,9 +1,8 @@
 import { Comportamiento } from "./comportamiento";
 import { TragamonedaPadre } from "./tragamonedasPadre";
-import { Usuario } from "./usuario";
 
 export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
-    protected tipo: string;
+    private tipo: string;
     
     constructor (cantidadPosiciones : number, minimo : number, maximo : number, nombreJuego : string, tipo : string) {
         super (cantidadPosiciones, minimo, maximo, nombreJuego);
@@ -24,7 +23,7 @@ export class Tragamoneda5x3 extends TragamonedaPadre implements Comportamiento{
     public resultadoJuego (valorApuesta: number) : number {
         let tabla : string [] = [];
         for (let i=0; i < 15; i++) {
-            const codigoAscii = Math.floor(Math.random() * (this.maximo - this.minimo + 1)) + this.minimo; //va de la A a la E
+            const codigoAscii = Math.floor(Math.random() * (this.getMaximo() - this.getMinimo() + 1)) + this.getMinimo(); //va de la A a la E
             tabla[i] = String.fromCharCode(codigoAscii);
         } 
         console.table([tabla.slice(0, 5), tabla.slice(5, 10), tabla.slice(10)]); 

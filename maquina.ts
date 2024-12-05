@@ -5,5 +5,5 @@ export abstract class Maquina {
         this.nombreJuego = nombreJuego;
     }
    
-    abstract perderJuego (numero:number) :number;
+    protected abstract perderJuego (numero:number) :number;
 }

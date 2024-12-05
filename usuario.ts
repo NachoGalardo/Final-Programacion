@@ -1,6 +1,6 @@
 export class Usuario {
-    protected nombreUsuario : string;
-    protected saldo : number;
+    private nombreUsuario : string;
+    private saldo : number;
     
     constructor(nombreUsuario : string) {
         this.nombreUsuario = nombreUsuario;
@@ -19,7 +19,6 @@ export class Usuario {
     public setSaldo(saldo: number): void {
         this.saldo = saldo;
     }
-
     public agregarSaldo(saldo: number): void {
         this.saldo += saldo;
     }

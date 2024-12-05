@@ -1,9 +1,9 @@
 import { Maquina } from "./maquina";
 
 export abstract class TragamonedaPadre extends Maquina {
-    protected cantidadPosiciones: number;
-    protected minimo : number;
-    protected maximo : number;
+    private cantidadPosiciones: number;
+    private minimo : number;
+    private maximo : number;
 
     constructor(cantidadPosiciones : number, minimo : number, maximo : number, nombreJuego : string) {
         super (nombreJuego);
@@ -12,6 +12,16 @@ export abstract class TragamonedaPadre extends Maquina {
         this.maximo = maximo;
         this.nombreJuego = nombreJuego;
     }
+    
+    protected abstract bonus (multiplicadorBonus:number) : number;
 
-    abstract bonus (multiplicadorBonus:number) : number;
+    protected getCantidadPosiciones(): number {
+        return this.cantidadPosiciones;
+    }
+    protected getMinimo(): number {
+        return this.minimo;
+    }
+    protected getMaximo(): number {
+        return this.maximo;
+    }
 }

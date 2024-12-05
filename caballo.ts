@@ -1,8 +1,8 @@
 export class Caballo {
-    public nombre: string;
-    protected velocidad: number; // Velocidad máxima en km/h
-    protected resistencia: number; // Resistencia en %
-    public numeroCaballo: number;
+    private nombre: string;
+    private velocidad: number; // Velocidad máxima en km/h
+    private resistencia: number; // Resistencia en %
+    private numeroCaballo: number;
     
     constructor(nombre: string, numeroCaballo: number) {
         this.nombre = nombre;
@@ -10,7 +10,10 @@ export class Caballo {
         this.resistencia = Math.floor(Math.random()*(100-70+1))+10;
         this.numeroCaballo = numeroCaballo;
     }
-
+    
+    public getNombre(): string {
+        return this.nombre;
+    }
     public getNumeroCaballo () : number {
         return this.numeroCaballo;
     }
