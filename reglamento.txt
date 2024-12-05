@@ -38,20 +38,28 @@ En caso de coincidir los numero de toda la primera fila entre si, mas la coincid
 Las máquinas tragamonedas son revisadas periódicamente para asegurar su correcto funcionamiento.
 
 4. Reglas de las Tragamonedas 5x3
-4.1. Objetivo del Juego: Obtener una combinación ganadora de numeros en los carretes, ya sea horizontal en la primera, segunda o tercera fila, o en varias a la vez, es decir en la primera y segunda fila, primera y tercera fila o segunda y tercera fila. 
-Tambien es posible obtener una combinacion en la primera, segunda y tercera fila a la vez, lo cual genera el premio mayor. 
+
+4.1. Objetivo del Juego:
+Obtener una combinación ganadora de números en los carretes, ya sea horizontal en la primera, segunda o tercera fila, o en varias a la vez, es decir, en la primera y segunda fila, primera y tercera fila, o segunda y tercera fila.
+También es posible obtener una combinación en la primera, segunda y tercera fila a la vez, lo cual genera el premio mayor.
+
 4.2. Funcionamiento:
-Los jugadores insertan una apuesta minima de 1000 creditos, sin tope de un maximo de apuesta, y activan la maquina.
+Los jugadores insertan una apuesta mínima de 1000 créditos, sin tope de un máximo de apuesta, y activan la máquina.
 Los carretes giran y se detienen para mostrar una o varias combinaciones.
-Dependiendo de la combinacion, el jugador puede ganar mas o menos creditos. 
+Dependiendo de la combinación, el jugador puede ganar más o menos créditos.
+
+Nota: Existe la posibilidad de realizar tiradas automáticas, en las cuales el jugador deberá elegir previamente la cantidad de tiradas que desea realizar y el monto de la apuesta.
+
 4.3. Premios:
-Cada fila individual que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 4.
-Cada combinacion de dos filas que coincidan sus numeros, tiene como ganancia correspondiente, la cantidad apostada multiplicada por 4, mas una segunda multiplicacion a ese total por 3.
-En caso de coincidir los numero de toda la primera fila entre si, mas la coincidencia de los numeros de la segunda fila entre si, mas la coincidencia de los numeros de la tercera fila entre si, tendra como ganancia correspondiente, la cantidad apostada multiplicada por 4, mas una segunda multiplicacion a ese total por 20.
+Cada fila individual que coincida en sus números tiene como ganancia correspondiente la cantidad apostada multiplicada por 4.
+Cada combinación de dos filas que coincidan en sus números tiene como ganancia correspondiente la cantidad apostada multiplicada por 4, más una segunda multiplicación de ese total por 3.
+En caso de coincidir los números de toda la primera fila entre sí, más la coincidencia de los números de la segunda fila entre sí, más la coincidencia de los números de la tercera fila entre sí, tendrá como ganancia correspondiente la cantidad apostada multiplicada por 4, más una segunda multiplicación de ese total por 20.
+
 4.4. Ajustes y Mantenimiento:
 Las máquinas tragamonedas son revisadas periódicamente para asegurar su correcto funcionamiento.
 
 5. Reglas de las Carreras de Caballos
+
 5.1. Objetivo del Juego: Apostar por el caballo que crea el usuario que ganara la carrera.
 5.2. Tipos de Apuestas:
 Ganador: Apuesta al caballo que llegue primero.
